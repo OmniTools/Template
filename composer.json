@@ -1,0 +1,17 @@
+{
+  "name": "omnitools/core",
+  "description": "OmniTools Template Extension",
+  "type": "omnitools-extension",
+  "authors": [
+    {
+      "name": "pixelfabrik",
+      "homepage": "https://www.pixel-fabrik.com"
+    }
+  ],
+  "license": "proprietary",
+  "autoload": {
+    "psr-4": {
+      "OmniTools\\Template\\": "/src/"
+    }
+  }
+}
