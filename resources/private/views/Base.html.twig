@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+    <head>
+
+        {%  include "partials/Head.html.twig" %}
+
+    </head>
+    <body>
+
+        <div id="page">
+            <aside id="aside">
+                <a href="#" class="logo">omnitools</a>
+
+                {{ menuHtml | raw }}
+
+            </aside>
+            <div id="main">
+                <div id="topBanner">
+
+                    <nav class="pills main">
+                        <a href="ApartmentsRental/Dashboard/Dashboard/index" class="active">Vermietung</a>
+                    </nav>
+
+                    <nav class="pills personal">
+                        <!--<a href="#"><i class="fa fa-user"></i> fghgfhfghfgh</a>-->
+
+                        <span class="dropdown">
+                            <a href="#" class="pill dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user"></i>
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{{ front.getUri('Core', 'Session', 'Profile', 'index') }}"><i class="fa fa-user"></i> Profil</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ front.getUri('Core', 'Session', 'Login', 'quit') }}"><i class="fa fa-power-off"></i> Abmelden</a>
+                            </div>
+                        </span>
+                    </nav>
+
+                </div>
+                <div id="pageTitle">
+                    <h1>{{ front.getTitle() }}</h1>
+
+                    {{ front.renderBreadcrumb() | raw }}
+
+                    <div class="buttons">
+                        {% for button in front.getButtons() %}
+                            <a title="{{ button.getTitle() }}" href="{{ button.getHref() }}" class="{{ button.getClass() }} btn btn-sm btn-success">{{ button.getLabel() }}</a>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                <div class="content-pillow">
+                    <div class="container-fluid">
+
+                        {% for message in front.getMessages() %}
+                            <div class="message {{ message.type }}">
+                                {{ message.message }}
+                            </div>
+                        {% endfor %}
+
+                        {{ controllerHtml | raw }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">MODAL_TITLE</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-content-wrapper">
+                        <div class="modal-body">
+                            <p>Die Daten werden geladen ...</p>
+                        </div>
+                    </div>
+                    <!--
+                    <div class="modal-body">
+                        ...
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                    -->
+                </div>
+            </div>
+        </div>
+
+        <script src="build/bundle.js"></script>
+    </body>
+</html>

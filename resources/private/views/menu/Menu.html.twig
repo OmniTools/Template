@@ -1,0 +1,11 @@
+<nav class="main">
+    {% for menuItem in menuData %}
+        <a href="{{ menuItem.getHref() }}" class="{{ menuItem.getClass() }}" {% for name, value in menuItem.getAttributes() %}{{ name }}="{{ value }}" {% endfor %}>
+            <i class="fa fa-fw {{ menuItem.getIcon() }}"></i>{{ menuItem.getLabel() }}
+
+            {% if menuItem.hasAttribute('data-counter') and menuItem.getAttribute('data-counter') > 0 %}
+                <span class="badge badge-danger">{{ menuItem.getAttribute('data-counter') }}</span>
+            {% endif %}
+        </a>
+    {% endfor %}
+</nav>
