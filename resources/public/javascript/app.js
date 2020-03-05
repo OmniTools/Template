@@ -122,6 +122,10 @@ $(document).on('submit', 'form.ajax', function ( event ) {
                 });
             }
 
+            if (typeof response.refresh !== 'undefined') {
+                location.reload();
+            }
+
             if (typeof response.modalDismiss !== 'undefined') {
                 $('#genericModal').modal('hide');
             }
