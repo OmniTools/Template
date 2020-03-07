@@ -45,7 +45,13 @@
 
                     <div class="buttons">
                         {% for button in front.getButtons() %}
-                            <a title="{{ button.getTitle() }}" href="{{ button.getHref() }}" class="{{ button.getClass() }} btn btn-sm btn-success">{{ button.getLabel() }}</a>
+                            <a title="{{ button.getTitle() }}" href="{{ button.getHref() }}" class="{{ button.getClass() }} btn btn-sm">
+                                {% if button.getIcon() %}
+                                    <i class="fa {{ button.getIcon() }}"></i>
+                                {% endif %}
+
+                                {{ button.getLabel() }}
+                            </a>
                         {% endfor %}
                     </div>
 
