@@ -18,7 +18,13 @@
                 <div id="topBanner">
 
                     <nav class="pills main">
-                        <a href="ApartmentsRental/Dashboard/Dashboard/index" class="active">Vermietung</a>
+
+                        <!--<a href="ApartmentsRental/Dashboard/Dashboard/index" class="active">Vermietung</a>-->
+
+                        {% for menuItem in front.getTopMenu().getMenuItems() %}
+                            <a class="active" href="{{ menuItem.getHref() }}">{{ menuItem.getLabel() }}</a>
+                        {% endfor %}
+
                     </nav>
 
                     <nav class="pills personal">
