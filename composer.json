@@ -9,9 +9,12 @@
     }
   ],
   "license": "proprietary",
-  "autoload": {
-    "psr-4": {
-      "OmniTools\\Template\\": "/src/"
+  "require": {
+    "php": "^8.3"
+  },
+  "config": {
+    "platform": {
+      "php": "8.3.36"
     }
   }
 }
